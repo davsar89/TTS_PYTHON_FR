@@ -29,13 +29,10 @@ speakers = ['Claribel Dervla', 'Daisy Studious', 'Gracie Wise', 'Tammie Ema', 'A
 
 # Text to be used for all audio generations
 text = """ 
-Bonjour à tous ! Aujourd'hui, nous plongeons profondément dans le monde complexe des modèles thermodynamiques et climatiques. Ce n'est pas aussi simple que certains voudraient vous le faire croire et la science est très loin d'être établie, comme je vais vous le démontrer. Alors attachez vos ceintures, car nous allons devenir un peu technique !
-
-générique.
-
-Tout d'abord, il n'y a rien de "basique" dans le système climatique terrestre. Si vous avez suivi un cours de dynamique atmosphérique ou ouvert un manuel sur le sujet, vous le sauriez.
-
-Maintenant, examinons un peu, entre guillemets,  la "physiques de base", qui détermine l'ampleur du réchauffement résultant directement de l'augmentation des concentrations de dioxyde de carbone dans l'atmosphère. Préparez-vous, il va y avoir un peu de maths.
+Ceci est le début.
+Bonjour à tous, je suis vraiment heureux de vous parler aujourd'hui. Ce texte est spécialement conçu pour évaluer et améliorer les capacités de synthèse vocale en français. Nous allons explorer une grande diversité de phrases pour bien saisir les nuances et les subtilités de la langue française.
+Chaque jour commence par un lever de soleil magnifique, où la lumière dorée illumine le paysage. Les oiseaux chantent joyeusement, créant une atmosphère paisible. Dans notre quotidien, il est important de prendre un moment pour apprécier ces petits plaisirs. Le matin, je prends toujours une tasse de café bien chaud pour me réveiller et me préparer à affronter la journée. Le café est un rituel pour beaucoup d'entre nous. Un moment de calme avant de plonger dans les activités du jour.
+Ceci est la fin.
 """
 
 text=text.replace('.',';')
