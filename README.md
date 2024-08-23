@@ -14,10 +14,11 @@ Miniconda is a minimal installer for conda. If you don't have it installed, foll
 1. Download Miniconda from [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 2. Choose the appropriate version for your operating system
 3. Run the installer and follow the prompts
+4. Alternatively Anaconda can be used instead of Miniconda, but takes more disk space
 
 ### 2. Create a Conda Environment
 
-Once Miniconda is installed, create a new conda environment:
+Once Miniconda is installed, open the Anaconda Prompt Terminal App (on Windows), and create a new conda environment:
 
 ```bash
 conda create -n tts python=3.11
