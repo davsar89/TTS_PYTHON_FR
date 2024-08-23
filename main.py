@@ -76,6 +76,11 @@ def read_text_file(file):
     with open(file.name, 'r', encoding='utf-8') as f:
         return f.read()
 
+def update_text_input(file):
+    if file is not None:
+        return read_text_file(file)
+    return None
+
 def generate_audio(text, text_file, model_name, speaker, reference_file, temperature, use_gpu, language, progress=gr.Progress()):
     # Check if text is provided directly or via file
     if text_file is not None:
@@ -130,7 +135,16 @@ def generate_audio(text, text_file, model_name, speaker, reference_file, tempera
     
     
 
-with gr.Blocks() as demo:
+with gr.Blocks(css="""
+    #generate-btn {
+        background-color: #90EE90 !important;
+        border-color: #90EE90 !important;
+    }
+    #generate-btn:hover {
+        background-color: #7CCD7C !important;
+        border-color: #7CCD7C !important;
+    }
+""") as demo:
     gr.Markdown("# Text-to-Speech coqui-ai TTS FRENCH")
     gr.Markdown("Generate audio from text or uploaded .txt file using a wide range of TTS models. Each output file will have a unique name.")
     
@@ -139,7 +153,7 @@ with gr.Blocks() as demo:
             label="Text Input",
             value="""Ceci est le début.
                 Bonjour à tous, je suis vraiment heureux de vous parler aujourd'hui. Ce texte est spécialement conçu pour évaluer et améliorer les capacités de synthèse vocale en français. Nous allons explorer une grande diversité de phrases pour bien saisir les nuances et les subtilités de la langue française.
-                Chaque jour commence par un lever de soleil magnifique, où la lumière dorée illumine le paysage. Les oiseaux chantent joyeusement, créant une atmosphère paisible. Dans notre quotidien, il est important de prendre un moment pour apprécier ces petits plaisirs. Le matin, je prends toujours une tasse de café bien chaud pour me réveiller et me préparer à affronter la journée. Le café est un rituel pour beaucoup d'entre nous. Un moment de calme avant de plonger dans les activités du jour.
+                Chaque jour commence par un lever de soleil magnifique, où la lumière dorée illumine le paysage. Les oiseaux chantent joyeusement, créant une atmosphère paisible. Dans notre quotidien, il est important de prendre un moment pour apprécier ces petits plaisirs. Le matin, je prends toujours une tasse de café bien chaud pour me réveiller et me préparer à affronter la journée. Le café est un rituel pour beaucoup d'entre nous, un moment de calme avant de plonger dans les activités du jour.
                 Ceci est la fin.""",
             placeholder="Enter text here or upload a .txt file below"
         )
@@ -158,11 +172,13 @@ with gr.Blocks() as demo:
         use_gpu_checkbox = gr.Checkbox(label="Use GPU (if available, otherwise use CPU, slower)", value=is_gpu_available)
     
     with gr.Row():
-        generate_button = gr.Button("Generate Audio")
-        abort_button = gr.Button("Abort Generation")
+        generate_button = gr.Button("Generate Audio", elem_id="generate-btn")
+        abort_button = gr.Button("Abort Generation", variant="stop")
     
     audio_output = gr.Audio(label="Generated Audio")
     status_output = gr.Textbox(label="Status")
+
+    text_file.upload(fn=update_text_input, inputs=[text_file], outputs=[text_input])
     
     job = generate_button.click(
         generate_audio,
