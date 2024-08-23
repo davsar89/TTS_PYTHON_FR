@@ -110,8 +110,8 @@ def generate_audio(text, text_file, model_name, speaker, reference_file, tempera
     # Ensure the outputs directory exists
     os.makedirs("outputs", exist_ok=True)
 
-    text = text.replace('.', ';')
-    text = text.replace(',', ';')
+    #text = text.replace('.', ';')
+    #text = text.replace(',', ';')
 
     progress(0.1, desc="Performing TTS... (percentage is not accurate)")
 
