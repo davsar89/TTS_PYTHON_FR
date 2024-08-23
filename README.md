@@ -1,6 +1,7 @@
 # Text-to-Speech (TTS) Application using Python TTS. French (by default, can be changed)
 
 This application uses the coqui-ai TTS library to generate speech from text input. It supports multiple languages and models, and provides a user-friendly interface using Gradio.
+Set-up for french but should be usable for other languages.
 
 ## Setup Instructions
 
@@ -52,18 +53,15 @@ gradio main.py
 1. Enter the text you want to convert to speech in the "Text Input" box, or upload a .txt file
 2. Select a TTS model from the dropdown menu
 3. Choose a speaker (if applicable)
-4. Select a reference speaker WAV file (if desired). You can put new references inside the `references` folder.
+4. Select a reference speaker WAV file (if desired). You can put new references inside the `references` folder
+5. The "Reference Speaker WAV" file, if not set to `None`, will always overrride the "Speaker"
 5. Adjust the temperature using the slider
 6. Check the "Use GPU" box if you want to use GPU acceleration (if available)
 7. Select the desired language from the dropdown menu
-8. Click the "Generate Audio" button, it generates playable audio in the GUI, and files are saved in the `outputs` folder.
+8. Click the "Generate Audio" button, it generates playable audio in the GUI, and files are saved in the `outputs` folder
 9. Listen to the generated audio or download it
 
 ## Troubleshooting
 
 - If you encounter any issues with GPU acceleration, try unchecking the "Use GPU" box
 - Ensure you have the latest graphics drivers installed if using GPU acceleration
-- If you get any package-related errors, try updating the packages:
-  ```bash
-  pip install --upgrade tts gradio
-  ```
