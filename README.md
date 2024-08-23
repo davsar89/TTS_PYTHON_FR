@@ -3,6 +3,10 @@
 This application uses the coqui-ai TTS library to generate speech from text input. It supports multiple languages and models, and provides a user-friendly interface using Gradio.
 Set-up for french but should be usable for other languages.
 
+## Application Interface
+
+![TTS Application GUI](screenshot.png)
+
 ## Setup Instructions
 
 Follow these steps to set up the environment and run the application:
